@@ -1,12 +1,17 @@
+import { UiModule } from '@esohp/ui';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProductListComponent } from './product-list/product-list.component';
-const routes :Routes =[
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { AccordionModule } from 'primeng/accordion';
+
+const routes: Routes = [
   {
     path: '', component: HomePageComponent
   },
@@ -15,8 +20,19 @@ const routes :Routes =[
   }
 ]
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent, HomePageComponent, ProductListComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  declarations: [
+    AppComponent,
+    HomePageComponent,
+    ProductListComponent,
+    FooterComponent,
+    HeaderComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
+    UiModule, 
+    AccordionModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
