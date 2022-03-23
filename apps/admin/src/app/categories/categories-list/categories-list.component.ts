@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import { Component, OnInit } from '@angular/core';
-
+import { CategoriesService, Category } from '@esohp/products';
 @Component({
   selector: 'admin-categories-list',
   templateUrl: './categories-list.component.html',
@@ -9,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesListComponent implements OnInit {
 
-  constructor() { }
+  Categories:Category [] = []
+   constructor(
+    private categoriesService: CategoriesService
+      ) { }
 
-  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
+this.categoriesService.getCategories().subscribe({
+      next:(res)=>{
+        this.Categories=res
+      }
+    })
+    
+
   }
 
 }

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,8 +9,18 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 import {CardModule} from 'primeng/card';
-
-const routes :Routes =[
+import {ToolbarModule} from 'primeng/toolbar';
+import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
+import {SlideMenuModule} from 'primeng/slidemenu';
+const UX_MODULE = [
+  ButtonModule,
+  ToolbarModule,
+  CardModule,
+  TableModule,
+  SlideMenuModule,
+]
+const routes:Routes =[
   {
     path:'',
     component:ShellComponent , 
@@ -31,7 +42,9 @@ const routes :Routes =[
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
-    CardModule,
+    HttpClientModule,
+    ...UX_MODULE,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
