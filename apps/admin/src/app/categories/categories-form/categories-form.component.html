@@ -1,0 +1,36 @@
+<p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}"  ></p-toast>
+<div class="admin-page">
+  <p-card header=" Add Category " subheader="You can add or edit Category here">
+    <div class="grid mb-4">
+      <div class="col-12">
+        <p-toolbar>
+          <div class="p-tollbar-group-left"></div>
+          <div class="p-tollbar-group-right">
+            <p-button styleClass="p-button-primary mr-2" label="Create" icon="pi pi-plus" (click)="onSubmit()"></p-button>
+            <p-button styleClass="p-button-secondary" label="Cancel" icon="pi pi-arrow-circle-left"></p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-12">
+        <form [formGroup]="form" >
+          <div class="card">
+            <div class="formgrid grid">
+              <div class="field col">
+                <label for="Name">Name</label>
+                <input  id="Name" formControlName="name" type="text" class="  inputfield w-full" />
+                <small *ngIf="this.form.get('name')?.errors!==null&&form.get('name')?.touched" class="p-error" >Name is requird </small>
+              </div>
+              <div class="field col">
+                <label for="Icon">Icon</label>
+                <input id="Icon" formControlName="icon" type="text" class="inputfield w-full" />
+                <small *ngIf="this.form.get('icon')?.errors!==null&&form.get('icon')?.touched"  class="p-error ">Icon is requird </small>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>

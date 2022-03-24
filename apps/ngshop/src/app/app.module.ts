@@ -25,7 +25,8 @@ const routes: Routes = [
     HomePageComponent,
     ProductListComponent,
     FooterComponent,
-    HeaderComponent],
+    HeaderComponent,
+    ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
