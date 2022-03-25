@@ -1,26 +1,26 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "rootDir": ".",
-        "sourceMap": true,
-        "declaration": false,
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "importHelpers": true,
-        "target": "es2015",
-        "module": "esnext",
-        "lib": ["es2017", "dom"],
-        "skipLibCheck": true,
-        "skipDefaultLibCheck": true,
-        "baseUrl": ".",
-        "paths": {
-            "@esohp/orders": ["libs/orders/src/index.ts"],
-            "@esohp/products": ["libs/products/src/index.ts"],
-            "@esohp/ui": ["libs/ui/src/index.ts"],
-            "@esohp/users": ["libs/users/src/index.ts"]
-
-        }
-    },
-    "exclude": ["node_modules", "tmp"]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "strictNullChecks": false,
+    "paths": {
+      "@esohp/orders": ["libs/orders/src/index.ts"],
+      "@esohp/products": ["libs/products/src/index.ts"],
+      "@esohp/ui": ["libs/ui/src/index.ts"],
+      "@esohp/users": ["libs/users/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
 }

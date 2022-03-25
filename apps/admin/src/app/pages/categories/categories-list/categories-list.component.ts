@@ -39,10 +39,7 @@ export class CategoriesListComponent implements OnInit {
     });
   }
 
-  updateCategory(CategoryID: string) {
-    console.log(CategoryID);
-  }
-
+  
   private _getCategories() {
     this.categoriesService.getCategories().subscribe({
       next: (res) => {

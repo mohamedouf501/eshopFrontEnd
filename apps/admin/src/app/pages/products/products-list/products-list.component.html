@@ -1,6 +1,6 @@
 <p-toast [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }"></p-toast>
 <div class="admin-page">
-  <p-card header="Categories" subheader="List Of All Categories">
+  <p-card header="products" subheader="List Of All products">
     <div class="grid">
       <div class="col-12">
         <p-toolbar>
@@ -12,30 +12,39 @@
     </div>
     <div class="grid">
       <div class="col-12">
-        <p-table [value]="Categories" styleClass="p-datatable-gridlines" responsiveLayout="stack">
+        <p-table [value]="products"           [paginator]="true"           [rows]="10"
+
+        styleClass="p-datatable-gridlines" responsiveLayout="stack">
           <ng-template pTemplate="header">
             <tr>
               <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
-              <th>Icon</th>
-              <th>Color</th>
+              <th>Image</th>
+              <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+              <th pSortableColumn="countInStock">Stock <p-sortIcon field="countInStock"></p-sortIcon></th>
+              <th pSortableColumn="category.name">Category <p-sortIcon field="category.name"></p-sortIcon></th>
+              <th pSortableColumn="dateCreated">Created at <p-sortIcon field="dateCreated"></p-sortIcon></th>
               <th></th>
             </tr>
           </ng-template>
-          <ng-template pTemplate="body" let-Categories>
+          <ng-template pTemplate="body" let-products>
             <tr>
-              <td>{{ Categories.name }}</td>
-              <td><i class="pi" style="font-size: 2rem" [ngClass]="'pi-' + Categories.icon"></i></td>
-              <td><i class="pi pi-circle-on" style="font-size: 2rem" [ngStyle]="{ color: Categories.color }"></i></td>
+              <td>{{ products.name }}</td>
+              <td>
+                <img [src]="products.image" alt="" style="width: 100px" />
+              </td>
+              <td>{{ products.price | currency: 'EGP' }}</td>
+              <td>{{ products.countInStock }}</td>
+              <td>{{ products.category.name }}</td>
+              <td>{{ products.dateCreated | date: 'short' }}</td>
               <td>
                 <p-button
                   styleClass="p-button-danger mr-2"
                   icon="pi pi-trash"
-                  (click)="deleteCategory(Categories.id)"
+                  (click)="deleteProducts(products.id)"
                 ></p-button>
                 <p-button
                   styleClass="p-button-warning"
-                 
-                  [routerLink]="['/categories/form', Categories.id]"
+                  [routerLink]="['/products/form', products.id]"
                   icon="pi pi-pencil"
                 ></p-button>
               </td>

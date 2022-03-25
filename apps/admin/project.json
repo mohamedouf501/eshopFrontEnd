@@ -6,7 +6,9 @@
     "targets": {
         "build": {
             "executor": "@angular-devkit/build-angular:browser",
-            "outputs": ["{options.outputPath}"],
+            "outputs": [
+                "{options.outputPath}"
+            ],
             "options": {
                 "outputPath": "dist/apps/admin",
                 "index": "apps/admin/src/index.html",
@@ -14,9 +16,18 @@
                 "polyfills": "apps/admin/src/polyfills.ts",
                 "tsConfig": "apps/admin/tsconfig.app.json",
                 "inlineStyleLanguage": "scss",
-                "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
-                "styles": ["apps/admin/src/styles.scss"],
-                "scripts": []
+                "assets": [
+                    "apps/admin/src/favicon.ico",
+                    "apps/admin/src/assets"
+                ],
+                "styles": [
+                    "apps/admin/src/styles.scss",
+                    "node_modules/quill/dist/quill.core.css",
+                    "node_modules/quill/dist/quill.snow.css"
+                ],
+                "scripts": [
+                    "node_modules/quill/dist/quill.js"
+                ]
             },
             "configurations": {
                 "production": {
@@ -72,12 +83,17 @@
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "options": {
-                "lintFilePatterns": ["apps/admin/src/**/*.ts", "apps/admin/src/**/*.html"]
+                "lintFilePatterns": [
+                    "apps/admin/src/**/*.ts",
+                    "apps/admin/src/**/*.html"
+                ]
             }
         },
         "test": {
             "executor": "@nrwl/jest:jest",
-            "outputs": ["coverage/apps/admin"],
+            "outputs": [
+                "coverage/apps/admin"
+            ],
             "options": {
                 "jestConfig": "apps/admin/jest.config.js",
                 "passWithNoTests": true

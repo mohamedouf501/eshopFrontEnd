@@ -19,18 +19,18 @@
             <div class="formgrid grid">
               <div class="field col">
                 <label for="Name">Name</label>
-                <input  id="Name" formControlName="name" type="text" class="  inputfield w-full" />
+                <input pInputText  id="Name" formControlName="name" type="text" class="  inputfield w-full" />
                 <small *ngIf="this.form.get('name')?.errors!==null&&form.get('name')?.touched" class="p-error" >Name is requird </small>
               </div>
               <div class="field col">
                 <label for="Icon">Icon</label>
-                <input id="Icon" formControlName="icon" type="text" class="inputfield w-full" />
+                <input pInputText id="Icon" formControlName="icon" type="text" class="inputfield w-full" />
                 <small *ngIf="this.form.get('icon')?.errors!==null&&form.get('icon')?.touched"  class="p-error ">Icon is requird </small>
               </div>
               <div class="field col">
                 <label for="color">Color</label>
                 <br>
-                <p-colorPicker formControlName="color"></p-colorPicker>
+                <p-colorPicker pInputText formControlName="color"></p-colorPicker>
               </div>
             </div>
           </div>

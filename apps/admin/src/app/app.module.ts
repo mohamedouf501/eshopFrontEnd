@@ -24,7 +24,14 @@ import { MessageService } from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {ColorPickerModule} from 'primeng/colorpicker';
-
+import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
+import { ProductsListComponent } from './pages/products/products-list/products-list.component';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {DropdownModule} from 'primeng/dropdown';
+import {EditorModule} from 'primeng/editor';
+import {FileUploadModule} from 'primeng/fileupload';
 
 const UX_MODULE = [
   ButtonModule,
@@ -35,7 +42,13 @@ const UX_MODULE = [
   InputTextModule,
   ToastModule,
   ConfirmDialogModule,
-  ColorPickerModule
+  ColorPickerModule,
+  InputNumberModule,
+  InputTextareaModule,
+  InputSwitchModule,
+  DropdownModule,
+  EditorModule,
+  FileUploadModule
   
   
 ]
@@ -60,11 +73,23 @@ const routes:Routes =[
         path:'categories/form/:id',
         component:CategoriesFormComponent
       },
+      {
+        path:'products',
+        component:ProductsListComponent
+      },
+      {
+        path:'products/form',
+        component:ProductsFormComponent
+      },
+      {
+        path:'products/form/:id',
+        component:ProductsFormComponent
+      },
     ]
   },
 ]
 @NgModule({
-  declarations: [AppComponent, ShellComponent, DashboardComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent],
+  declarations: [AppComponent, ShellComponent, DashboardComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent, ProductsFormComponent, ProductsListComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
