@@ -19,6 +19,7 @@
             "@esohp/products": ["libs/products/src/index.ts"],
             "@esohp/ui": ["libs/ui/src/index.ts"],
             "@esohp/users": ["libs/users/src/index.ts"]
+
         }
     },
     "exclude": ["node_modules", "tmp"]

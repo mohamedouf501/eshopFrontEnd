@@ -8,8 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShellComponent } from './shared/shell/shell.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
-import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
+import { CategoriesListComponent } from './pages/categories/categories-list/categories-list.component';
+import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 
 
 import {CardModule} from 'primeng/card';
@@ -23,6 +23,7 @@ import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
+import {ColorPickerModule} from 'primeng/colorpicker';
 
 
 const UX_MODULE = [
@@ -34,6 +35,7 @@ const UX_MODULE = [
   InputTextModule,
   ToastModule,
   ConfirmDialogModule,
+  ColorPickerModule
   
   
 ]
@@ -52,6 +54,10 @@ const routes:Routes =[
       },
       {
         path:'categories/form',
+        component:CategoriesFormComponent
+      },
+      {
+        path:'categories/form/:id',
         component:CategoriesFormComponent
       },
     ]

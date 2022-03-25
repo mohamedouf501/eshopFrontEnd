@@ -58,55 +58,55 @@
 }
 
 @media screen and (max-width: 600px) {
-//   .admin {
-//      &-main {
-//          width: calc(100% - 15px);
-//          margin-left: 15px;
-//      }
-//     &-sidebar {
-//       position: fixed;
-//       width: 175px;
-//       background-color: black;
-//       height: 100%;
-//       top: 0;
-//       left: -150px;
-//       .logo {
-//         padding: 20px;
-//         width: 100%;
-//         img {
-//           max-width: 100%;
-//         }
-//       }
-//       .links {
-//         ul {
-//           margin: 0;
-//           padding: 0;
-//           li {
-//             display: block;
-//             width: 100%;
-//             list-style: none;
-//             a {
-//               color: var(--surface-a);
-//               padding: 10px 15px;
-//               display: block;
-//               width: 100%;
-//               &:hover {
-//                 background-color: var(--blue-700);
-//               }
-//               i {
-//                 margin-right: 8px;
-//                 margin-top: 0;
-//                 float: left;
-//               }
-//             }
-//             &.logout {
-//               a {
-//                 color: var(--blue-500);
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
+  .admin {
+     &-main {
+         width: calc(100% - 50px);
+         margin-left: 50px;
+     }
+    &-sidebar {
+      position: fixed;
+      width: 50px;
+      background-color: black;
+      height: 100%;
+      top: 0;
+      .logo {
+        display:none;
+        img {
+          display:none
+        }
+      }
+      .links {
+        ul {
+          margin-top: 20px;
+          padding: 0;
+          li {
+            display: block;
+            width: 100%;
+            list-style: none;
+            a {
+              span{
+                display: none;
+              }
+              color: var(--surface-a);
+              padding: 20px 15px;
+              display: block;
+              width: 100%;
+             
+              i {
+                margin-right: 5px;
+                margin-top: 0;
+                float: left;
+                font-size: 1.25rem;
+              }
+            }
+            &.logout {
+              a {
+                color: var(--blue-500);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

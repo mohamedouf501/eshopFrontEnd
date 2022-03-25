@@ -11,13 +11,12 @@ export class CategoriesListComponent implements OnInit {
   constructor(
     private categoriesService: CategoriesService,
     private _MessageService: MessageService,
-    private confirmationService: ConfirmationService,
+    private confirmationService: ConfirmationService
   ) {}
 
   ngOnInit(): void {
     this._getCategories();
   }
-
   deleteCategory(CategoryID: string) {
     this.confirmationService.confirm({
       message: 'Are you sure that you want Delete this Category?',
@@ -40,9 +39,8 @@ export class CategoriesListComponent implements OnInit {
     });
   }
 
-  updateCategory(CategoryID: string){ 
-
-    
+  updateCategory(CategoryID: string) {
+    console.log(CategoryID);
   }
 
   private _getCategories() {
