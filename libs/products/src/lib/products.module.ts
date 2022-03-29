@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-    imports: [CommonModule,
-        HttpClientModule]
+  imports: [CommonModule, HttpClientModule]
 })
-export class ProductsModule { }
+export class ProductsModule {}

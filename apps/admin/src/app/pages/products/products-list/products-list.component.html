@@ -12,9 +12,13 @@
     </div>
     <div class="grid">
       <div class="col-12">
-        <p-table [value]="products"           [paginator]="true"           [rows]="10"
-
-        styleClass="p-datatable-gridlines" responsiveLayout="stack">
+        <p-table
+          [value]="products"
+          [paginator]="true"
+          [rows]="10"
+          styleClass="p-datatable-gridlines"
+          responsiveLayout="stack"
+        >
           <ng-template pTemplate="header">
             <tr>
               <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
