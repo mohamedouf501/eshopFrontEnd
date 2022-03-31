@@ -1,0 +1,58 @@
+<div class="login-register grid m-0 p-0">
+  <div class="login-register-panel col-12 md:col-6">
+    <div class="grid overflow-hidde">
+      <div class="col-12 md:col-6">
+        <div class="p-3">
+          <img alt="image" src="assets/images/login-photo.png" width="100%" />
+        </div>
+      </div>
+      <div class="col-12 md:col-6">
+        <div class="p-3">
+          <h3>welcome!</h3>
+          <h2>Login Page</h2>
+          <form [formGroup]="form">
+            <div class="grid mt-6">
+              <div class="col-12">
+                <div class="grid p-fluid">
+                  <div class="col-12">
+                    <div class="p-inputgroup">
+                      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                      <input type="text" formControlName="email" pInputText placeholder="Username" />
+                    </div>
+                    <div
+                      class="p-error"
+                      *ngIf="this.form.get('email')?.errors !== null && form.get('email')?.touched || isSubmited "
+                    >
+                      <small *ngIf="this.form.get('email')?.errors?.['required']" class="p-error">
+                        Email is requird
+                      </small>
+                      <small *ngIf="this.form.get('email')?.errors?.['email']" class="p-error">
+                        Email is invalid
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="grid p-fluid">
+                  <div class="col-12">
+                    <div class="p-inputgroup">
+                      <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                      <input type="password" formControlName="password" pInputText placeholder="password" />
+                    </div>
+                    <small *ngIf="this.form.get('password')?.errors !== null && form.get('password')?.touched || isSubmited " class="p-error"
+                      >Password is Required</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <p-button label="Submit" (click)="Submit()"></p-button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

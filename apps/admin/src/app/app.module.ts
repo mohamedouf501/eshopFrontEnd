@@ -11,34 +11,34 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { CategoriesListComponent } from './pages/categories/categories-list/categories-list.component';
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 
-
-import {CardModule} from 'primeng/card';
-import {ToolbarModule} from 'primeng/toolbar';
-import {ButtonModule} from 'primeng/button';
-import {TableModule} from 'primeng/table';
-import {SlideMenuModule} from 'primeng/slidemenu';
-import {InputTextModule} from 'primeng/inputtext';
+import { CardModule } from 'primeng/card';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { SlideMenuModule } from 'primeng/slidemenu';
+import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {ToastModule} from 'primeng/toast';
+import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService} from 'primeng/api';
-import {ColorPickerModule} from 'primeng/colorpicker';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { ColorPickerModule } from 'primeng/colorpicker';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
-import {InputNumberModule} from 'primeng/inputnumber';
-import {InputTextareaModule} from 'primeng/inputtextarea';
-import {InputSwitchModule} from 'primeng/inputswitch';
-import {DropdownModule} from 'primeng/dropdown';
-import {EditorModule} from 'primeng/editor';
-import {FileUploadModule} from 'primeng/fileupload';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { DropdownModule } from 'primeng/dropdown';
+import { EditorModule } from 'primeng/editor';
+import { FileUploadModule } from 'primeng/fileupload';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 import { TagModule } from 'primeng/tag';
-import {InputMaskModule} from 'primeng/inputmask';
+import { InputMaskModule } from 'primeng/inputmask';
 import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
 import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
-import {FieldsetModule} from 'primeng/fieldset';
+import { FieldsetModule } from 'primeng/fieldset';
+import { UsersModule } from '@esohp/users';
 
 const UX_MODULE = [
   ButtonModule,
@@ -59,82 +59,89 @@ const UX_MODULE = [
   TagModule,
   InputMaskModule,
   FieldsetModule
-  
-]
-const routes:Routes =[
+];
+const routes: Routes = [
   {
-    path:'',
-    component:ShellComponent , 
-    children:[
+    path: '',
+    component: ShellComponent,
+    children: [
       {
-        path:'dashboard',
-        component:DashboardComponent
+        path: 'dashboard',
+        component: DashboardComponent
       },
       {
-        path:'categories',
-        component:CategoriesListComponent
+        path: 'categories',
+        component: CategoriesListComponent
       },
       {
-        path:'categories/form',
-        component:CategoriesFormComponent
+        path: 'categories/form',
+        component: CategoriesFormComponent
       },
       {
-        path:'categories/form/:id',
-        component:CategoriesFormComponent
+        path: 'categories/form/:id',
+        component: CategoriesFormComponent
       },
       {
-        path:'products',
-        component:ProductsListComponent
+        path: 'products',
+        component: ProductsListComponent
       },
       {
-        path:'products/form',
-        component:ProductsFormComponent
+        path: 'products/form',
+        component: ProductsFormComponent
       },
       {
-        path:'products/form/:id',
-        component:ProductsFormComponent
+        path: 'products/form/:id',
+        component: ProductsFormComponent
       },
       {
-        path:'users',
-        component:UsersListComponent
+        path: 'users',
+        component: UsersListComponent
       },
       {
-        path:'users/form',
-        component:UsersFormComponent
+        path: 'users/form',
+        component: UsersFormComponent
       },
       {
-        path:'users/form/:id',
-        component:UsersFormComponent
+        path: 'users/form/:id',
+        component: UsersFormComponent
       },
       {
-        path:'orders',
-        component:OrdersListComponent
+        path: 'orders',
+        component: OrdersListComponent
       },
       {
-        path:'orders/:id',
-        component:OrdersDetailComponent
+        path: 'orders/:id',
+        component: OrdersDetailComponent
       }
-      
     ]
-  },
-]
+  }
+];
 @NgModule({
-  declarations: [AppComponent, ShellComponent,
-     DashboardComponent, SidebarComponent, CategoriesListComponent,
-      CategoriesFormComponent, ProductsFormComponent, ProductsListComponent,
-       UsersListComponent, UsersFormComponent, OrdersListComponent, OrdersDetailComponent],
+  declarations: [
+    AppComponent,
+    ShellComponent,
+    DashboardComponent,
+    SidebarComponent,
+    CategoriesListComponent,
+    CategoriesFormComponent,
+    ProductsFormComponent,
+    ProductsListComponent,
+    UsersListComponent,
+    UsersFormComponent,
+    OrdersListComponent,
+    OrdersDetailComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(routes, { useHash: true , initialNavigation: 'enabledBlocking' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
-    ...UX_MODULE,
-    
+    UsersModule,
+    ...UX_MODULE
   ],
-  providers: [MessageService,ConfirmationService],
-  bootstrap: [AppComponent],
+  providers: [MessageService, ConfirmationService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

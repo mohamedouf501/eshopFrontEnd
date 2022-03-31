@@ -17,3 +17,9 @@ export interface User {
   id?: string;
   password:string
 }
+
+export interface loginDto {
+  message: string;
+  token:string
+
+}
