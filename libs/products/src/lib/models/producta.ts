@@ -29,3 +29,7 @@ export interface Review {
     name:   string;
     review: string;
 }
+export interface productsCountDto {
+    message: string;
+    productCount: number;
+  }

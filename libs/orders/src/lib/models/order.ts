@@ -17,7 +17,15 @@ export interface Order {
 }
 
 export interface OrdersDto {
-  message:string ,
-  Orders?:Order[],
-  order?:Order
+  message: string;
+  Orders?: Order[];
+  order?: Order;
+}
+export interface orderCountDto {
+  message: string;
+  OrderCount: number;
+}
+export interface totalSalesDto {
+  message: string;
+  totalSales: number;
 }

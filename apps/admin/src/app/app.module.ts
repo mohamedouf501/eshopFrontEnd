@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -38,7 +38,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
 import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
 import { FieldsetModule } from 'primeng/fieldset';
-import { UsersModule } from '@esohp/users';
+import { AuthGuard, JwtInterceptor, UsersModule } from '@esohp/users';
 
 const UX_MODULE = [
   ButtonModule,
@@ -64,9 +64,10 @@ const routes: Routes = [
   {
     path: '',
     component: ShellComponent,
+    canActivate: [AuthGuard],
     children: [
       {
-        path: 'dashboard',
+        path: '',
         component: DashboardComponent
       },
       {
@@ -134,14 +135,18 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { useHash: true , initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(routes, { useHash: true, initialNavigation: 'enabledBlocking' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     UsersModule,
     ...UX_MODULE
   ],
-  providers: [MessageService, ConfirmationService],
+  providers: [
+    MessageService,
+    ConfirmationService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

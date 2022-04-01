@@ -3,16 +3,12 @@
   <p-card header="Orders" subheader="List of all orders">
     <div class="grid">
       <div class="col-12">
-        <p-table [value]="orders" styleClass="p-datatable-gridlines">
+        <p-table [value]="orders" styleClass="datatable-gridlines">
           <ng-template pTemplate="header">
             <tr>
               <th pSortableColumn="name">User <p-sortIcon field="user"></p-sortIcon></th>
-              <th pSortableColumn="totalPrice">
-                Total Price <p-sortIcon field="totalPrice"></p-sortIcon>
-              </th>
-              <th pSortableColumn="dateOrdered">
-                Date Ordered <p-sortIcon field="dateOrdered"></p-sortIcon>
-              </th>
+              <th pSortableColumn="totalPrice">Total Price <p-sortIcon field="totalPrice"></p-sortIcon></th>
+              <th pSortableColumn="dateOrdered">Date Ordered <p-sortIcon field="dateOrdered"></p-sortIcon></th>
               <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
               <th></th>
             </tr>
@@ -23,22 +19,15 @@
               <td>{{ order.totalPrice }}</td>
               <td>{{ order.dateOrdered | date: 'short' }}</td>
               <td>
-                <p-tag
-                  [value]="orderStatus[order.status].label"
-                  [severity]="orderStatus[order.status].color"
-                ></p-tag>
+                <p-tag [value]="orderStatus[order.status].label" [severity]="orderStatus[order.status].color"></p-tag>
               </td>
               <td>
                 <p-button
                   (click)="deleteOrder(order.id)"
-                  styleClass="p-button-danger p-mr-2"
+                  styleClass="p-button-danger mr-2"
                   icon="pi pi-trash"
                 ></p-button>
-                <p-button
-                [routerLink]="['/orders' , order.id]"
-                  styleClass="p-button-success"
-                  icon="pi pi-eye"
-                ></p-button>
+                <p-button [routerLink]="['/orders', order.id]" styleClass="button-success" icon="pi pi-eye"></p-button>
               </td>
             </tr>
           </ng-template>
@@ -50,5 +39,5 @@
 <p-confirmDialog
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
-  rejectButtonStyleClass="p-button-text"
+  rejectButtonStyleClass="button-text"
 ></p-confirmDialog>

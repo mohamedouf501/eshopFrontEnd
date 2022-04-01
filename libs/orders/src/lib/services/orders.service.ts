@@ -1,4 +1,4 @@
-import { OrdersDto } from './../models/order';
+import { orderCountDto, OrdersDto, totalSalesDto } from './../models/order';
 import { Order } from '@esohp/orders';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -36,5 +36,19 @@ export class OrdersService {
 
   deleteOrder(orderId: string) {
     return this.http.delete<any>(`http://localhost:3000/orders/${orderId}`);
+  }
+  getOrdersCount() {
+    return this.http.get<orderCountDto>(`http://localhost:3000/orders/get/OrderCount`).pipe(
+      switchMap((res) => {
+        return of(res.OrderCount);
+      })
+    );
+  }
+  getTotalSales() {
+    return this.http.get<totalSalesDto>(`http://localhost:3000/orders/get/totalSales`).pipe(
+      switchMap((res) => {
+        return of(res.totalSales);
+      })
+    )
   }
 }

@@ -23,3 +23,7 @@ export interface loginDto {
   token:string
 
 }
+export interface usersCountDto {
+  message: string;
+  UserCount: number;
+}

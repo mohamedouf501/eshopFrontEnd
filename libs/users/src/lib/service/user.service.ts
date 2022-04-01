@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of, switchMap } from 'rxjs';
-import { User, UserDto } from '../models/user.model';
+import { User, UserDto, usersCountDto } from '../models/user.model';
 import * as countriesLib from 'i18n-iso-countries';
 declare const require: (arg0: string) => countriesLib.LocaleData;
 @Injectable({
@@ -49,5 +49,12 @@ export class usersService {
 
   getCountry(countryKey: string) {
     return countriesLib.getName(countryKey, 'en', { select: 'official' });
+  }
+  getUsersCount(){
+    return this.http.get<usersCountDto>(`http://localhost:3000/users/get/count`).pipe(
+      switchMap((res) => {
+        return of(res.UserCount);
+      })
+    );
   }
 }

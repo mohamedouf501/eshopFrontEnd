@@ -25,7 +25,7 @@
       ul {
         margin: 0;
         padding: 0;
-        li{
+        li {
           display: block;
           width: 100%;
           list-style: none;
@@ -59,10 +59,10 @@
 
 @media screen and (max-width: 600px) {
   .admin {
-     &-main {
-         width: calc(100% - 50px);
-         margin-left: 50px;
-     }
+    &-main {
+      width: calc(100% - 50px);
+      margin-left: 50px;
+    }
     &-sidebar {
       position: fixed;
       width: 50px;
@@ -70,9 +70,9 @@
       height: 100%;
       top: 0;
       .logo {
-        display:none;
+        display: none;
         img {
-          display:none
+          display: none;
         }
       }
       .links {
@@ -84,14 +84,14 @@
             width: 100%;
             list-style: none;
             a {
-              span{
+              span {
                 display: none;
               }
               color: var(--surface-a);
               padding: 20px 15px;
               display: block;
               width: 100%;
-             
+
               i {
                 margin-right: 5px;
                 margin-top: 0;
@@ -102,6 +102,7 @@
             &.logout {
               a {
                 color: var(--blue-500);
+                cursor: pointer;
               }
             }
           }

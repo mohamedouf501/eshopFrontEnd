@@ -1,4 +1,4 @@
-import { Product, ProductsDto } from './../models/producta';
+import { Product, productsCountDto, ProductsDto } from './../models/producta';
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -27,10 +27,17 @@ export class productsService {
   createproduct(Product: FormData) {
     return this.http.post<Product>('http://localhost:3000/products/', Product);
   }
-    deleteProduct(ProductID: string) {
-      return this.http.delete<object>(`http://localhost:3000/products/${ProductID}`);
-    }
+  deleteProduct(ProductID: string) {
+    return this.http.delete<object>(`http://localhost:3000/products/${ProductID}`);
+  }
   updateproduct(Product: FormData, ProductID: string) {
     return this.http.put<Product>(`http://localhost:3000/products/${ProductID}`, Product);
+  }
+  getProductsCount() {
+    return this.http.get<productsCountDto>(`http://localhost:3000/products/get/count`).pipe(
+      switchMap((res) => {
+        return of(res.productCount);
+      })
+    );
   }
 }
